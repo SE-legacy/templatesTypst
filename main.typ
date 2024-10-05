@@ -119,6 +119,90 @@
   table.hline(),
 )
 
+= Assembler table template
+
+// NOTE: Assembler table template
+
+#set text( 
+  size: 11pt
+)
+
+#set table.hline(stroke: .6pt)
+
+#table(
+  // set text(1pt),
+  columns: 13,
+  stroke: none,
+  inset: 2.5pt,
+  align: center,
+  table.hline(),
+  table.header(
+    [*Шаг*], 
+    [*Машинный 
+    \код*], 
+    [*Команда*], 
+    table.cell(colspan: 9, 
+      
+      [*Регистры*]
+    ),
+    [*Флаги*],
+    table.hline(start: 3),
+    [ ], [ ], [ ], [AX], [BX], [CX], [DX], [SP], [DS], [SS], [CS], [IP], [CZSOPAID],
+  ),
+  
+ 
+  table.hline(),
+  table.vline(x: 0),
+  table.vline(x: 1),
+  table.vline(x: 2),
+  table.vline(x: 3),
+  table.vline(x: 4, start: 1),
+  table.vline(x: 5, start: 1),
+  table.vline(x: 6, start: 1),
+  table.vline(x: 7, start: 1),
+  table.vline(x: 8, start: 1),
+  table.vline(x: 9, start: 1),
+  table.vline(x: 10, start: 1),
+  table.vline(x: 11, start: 1),
+  table.vline(x: 12 ),
+  table.vline(x: 13),
+  [0], [], [], 
+  // регистры AX, BX, CX, DX
+  [0000], [0000], [0000], [0000],
+  // регистр SP
+  [0100],
+  // регистры DS, SS, CS
+  [489D], [48B2], [48AD],
+  // регистр IP
+  [0000],
+  // флаги
+  [00000010],
+  table.hline(),
+  [1], [B8B048], [mov ax,48B0], 
+  // регистры AX, BX, CX, DX
+  [48B0], [0000], [0000], [0000],
+  // регистр SP
+  [0100],
+  // регистры DS, SS, CS
+  [489D], [48B2], [48AD],
+  // регистр IP
+  [0003],
+  // флаги
+  [00000010],
+  table.hline(),
+  [2], [8ED8], [mov ds,ax], 
+  // регистры AX, BX, CX, DX
+  [48B0], [0000], [0000], [0000],
+  // регистр SP
+  [0100],
+  // регистры DS, SS, CS
+  [48B0], [48B2], [48AD],
+  // регистр IP
+  [0005],
+  // флаги
+  [00000010],
+  table.hline(),
+)
 = Test Graphs
 
 #let print(desc: "", content) = {
